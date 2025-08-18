@@ -124,6 +124,1412 @@
       left: 0;
       width: 100%;
       height: 100%;
+      background: linear-gradient(135deg, #e6800d, #f59e0b);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 10000;
+      transition: opacity 0.5s ease, visibility 0.5s ease;
+    }
+
+    #loading-screen.hidden {
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    .loading-content {
+      text-align: center;
+      color: white;
+    }
+
+    .loading-spinner {
+      width: 60px;
+      height: 60px;
+      border: 3px solid rgba(255, 255, 255, 0.3);
+      border-top: 3px solid white;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      margin: 0 auto 2rem;
+    }
+
+    .loading-content h2 {
+      font-family: "Bricolage Grotesque", sans-serif;
+      font-size: 2rem;
+      margin-bottom: 2rem;
+      opacity: 0;
+      animation: fadeInUp 0.8s ease 0.5s forwards;
+    }
+
+    .loading-bar {
+      width: 200px;
+      height: 4px;
+      background: rgba(255, 255, 255, 0.3);
+      border-radius: 2px;
+      margin: 0 auto;
+      overflow: hidden;
+    }
+
+    .loading-progress {
+      height: 100%;
+      background: white;
+      border-radius: 2px;
+      animation: loadingProgress 3s ease forwards;
+    }
+
+    @keyframes spin {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes loadingProgress {
+      0% {
+        width: 0%;
+      }
+      100% {
+        width: 100%;
+      }
+    }
+
+    /* Flower Animation Styles */
+    #flower-container {
+      position: fixed;
+      width: 80px;
+      height: 80px;
+      pointer-events: none;
+      z-index: 1000;
+      transition: transform 0.5s ease-out;
+      transform: translate(-50%, -50%) scale(0);
+      opacity: 0;
+    }
+
+    #flower-container.show {
+      opacity: 1;
+      transform: translate(-50%, -50%) scale(1);
+    }
+
+    #flower-container.scattering {
+      pointer-events: none;
+    }
+
+    .flower {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      cursor: pointer;
+      pointer-events: auto;
+      transition: transform 0.3s ease;
+    }
+
+    .flower:hover {
+      transform: scale(1.1) rotate(5deg);
+    }
+
+    .petal {
+      position: absolute;
+      width: 40px;
+      height: 20px;
+      border-radius: 20px 20px 0 0;
+      transform-origin: center bottom;
+      transition: background-color 0.5s ease;
+    }
+
+    .petal-1 {
+      transform: rotate(0deg) translateY(-10px);
+    }
+
+    .petal-2 {
+      transform: rotate(72deg) translateY(-10px);
+    }
+
+    .petal-3 {
+      transform: rotate(144deg) translateY(-10px);
+    }
+
+    .petal-4 {
+      transform: rotate(216deg) translateY(-10px);
+    }
+
+    .petal-5 {
+      transform: rotate(288deg) translateY(-10px);
+    }
+
+    .center {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: #f1c40f;
+      border-radius: 50%;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 2;
+    }
+
+    .mini-flower {
+      will-change: transform, opacity; /* Improves performance */
+      position: absolute;
+      width: 30px;
+      height: 30px;
+      pointer-events: none;
+    }
+
+    .mini-flower .petal {
+      width: 20px;
+      height: 10px;
+    }
+
+    .mini-flower .center {
+      width: 10px;
+      height: 10px;
+    }
+
+    @keyframes float-up {
+      0% {
+        transform: translate(0, 0) scale(1);
+        opacity: 1;
+      }
+      100% {
+        transform: translate(var(--tx), var(--ty)) scale(0.5);
+        opacity: 0;
+      }
+    }
+
+    @keyframes pulse {
+      0% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.1);
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+    /* 3D Flower Animation */
+    #flower-container {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 1000;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.5s ease;
+    }
+
+    #flower-container.show {
+      opacity: 1;
+    }
+
+    .flower {
+      position: relative;
+      width: 100px;
+      height: 100px;
+      animation: flowerFloat 1s ease-in-out;
+    }
+
+    .petal {
+      position: absolute;
+      width: 30px;
+      height: 60px;
+      background: linear-gradient(45deg, #ff6b6b, #feca57);
+      border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+      transform-origin: 50% 100%;
+    }
+
+    .petal-1 {
+      transform: rotate(0deg) translateY(-20px);
+    }
+    .petal-2 {
+      transform: rotate(72deg) translateY(-20px);
+    }
+    .petal-3 {
+      transform: rotate(144deg) translateY(-20px);
+    }
+    .petal-4 {
+      transform: rotate(216deg) translateY(-20px);
+    }
+    .petal-5 {
+      transform: rotate(288deg) translateY(-20px);
+    }
+
+    .center {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 20px;
+      height: 20px;
+      background: #f39c12;
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    @keyframes flowerFloat {
+      0% {
+        transform: scale(0) rotate(0deg);
+        opacity: 0;
+      }
+      50% {
+        transform: scale(1.2) rotate(180deg);
+        opacity: 1;
+      }
+      100% {
+        transform: scale(1) rotate(360deg);
+        opacity: 1;
+      }
+    }
+
+    /* Floating Particles (Surprise Feature) */
+    #particles-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .particle {
+      position: absolute;
+      width: 4px;
+      height: 4px;
+      background: var(--primary-color);
+      border-radius: 50%;
+      opacity: 0.7;
+      animation: particleFloat 8s linear infinite;
+    }
+
+    @keyframes particleFloat {
+      0%,
+      100% {
+        transform: translateY(100vh) rotate(0deg);
+        opacity: 0;
+      }
+      10% {
+        opacity: 0.7;
+      }
+      90% {
+        opacity: 0.7;
+      }
+      100% {
+        transform: translateY(-100px) rotate(360deg);
+        opacity: 0;
+      }
+    }
+
+    /* Navigation - Updated Styles */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: var(--navbar-bg);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border-color);
+      z-index: 1000;
+      transition: all 0.3s ease;
+    }
+
+    .navbar.scrolled {
+      background: var(--navbar-bg-scroll);
+      box-shadow: var(--shadow-medium);
+    }
+
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 4rem;
+    }
+
+    .nav-logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--navbar-text);
+      text-decoration: none;
+      font-family: "Bricolage Grotesque", sans-serif;
+    }
+
+    .nav-logo span {
+      background: linear-gradient(
+        135deg,
+        var(--primary-color),
+        var(--secondary-color)
+      );
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* Desktop Navigation */
+    .nav-menu {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+    }
+
+    .nav-link {
+      color: var(--navbar-text);
+      text-decoration: none;
+      font-weight: 500;
+      padding: 0.5rem 0;
+      position: relative;
+      transition: color 0.3s ease;
+    }
+
+    .nav-link:hover {
+      color: var(--navbar-text-hover);
+    }
+
+    .nav-link::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--primary-color);
+      transition: width 0.3s ease;
+    }
+
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    /* Theme Toggle Button */
+    .theme-toggle {
+      background: none;
+      border: 2px solid var(--border-color);
+      border-radius: 50px;
+      padding: 0.5rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: all 0.3s ease;
+      color: var(--navbar-text);
+    }
+
+    .theme-toggle:hover {
+      border-color: var(--primary-color);
+      transform: scale(1.05);
+    }
+
+    .theme-icon {
+      width: 1.25rem;
+      height: 1.25rem;
+      transition: transform 0.3s ease;
+    }
+
+    .sun-icon,
+    .sun-rays {
+      transition: opacity 0.3s ease;
+    }
+
+    .moon-icon {
+      transition: opacity 0.3s ease;
+      opacity: 0;
+    }
+
+    [data-theme="dark"] .sun-icon,
+    [data-theme="dark"] .sun-rays {
+      opacity: 0;
+    }
+
+    [data-theme="dark"] .moon-icon {
+      opacity: 1;
+    }
+
+    /* Mobile Hamburger */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      padding: 0.5rem;
+      gap: 0.25rem;
+    }
+
+    .bar {
+      width: 1.5rem;
+      height: 2px;
+      background-color: var(--navbar-text);
+      transition: all 0.3s ease;
+      border-radius: 2px;
+    }
+
+    .hamburger.active .bar:nth-child(1) {
+      transform: rotate(45deg) translate(3px, 4px);
+    }
+
+    .hamburger.active .bar:nth-child(2) {
+      opacity: 0;
+    }
+
+    .hamburger.active .bar:nth-child(3) {
+      transform: rotate(-45deg) translate(4px, -6px);
+    }
+
+    /* Mobile Menu */
+    .mobile-menu {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      background: var(--navbar-bg);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border-color);
+      padding: 1rem;
+      display: none;
+      flex-direction: column;
+      gap: 1rem;
+      box-shadow: var(--shadow-medium);
+    }
+
+    .mobile-menu.active {
+      display: flex;
+    }
+
+    .mobile-nav-link {
+      color: var(--navbar-text);
+      text-decoration: none;
+      font-weight: 500;
+      padding: 0.75rem 0;
+      border-bottom: 1px solid var(--border-color);
+      transition: color 0.3s ease;
+    }
+
+    .mobile-nav-link:hover {
+      color: var(--navbar-text-hover);
+    }
+
+    .mobile-nav-link:last-of-type {
+      border-bottom: none;
+    }
+
+    .mobile-theme-toggle {
+      justify-content: center;
+      padding: 0.75rem 1rem;
+      margin: 20px 30px 0px 30px;
+    }
+
+    .theme-toggle {
+      border: 1px solid gray;
+    }
+
+    /* Focus styles for accessibility */
+    .nav-link:focus,
+    .mobile-nav-link:focus {
+      outline: 2px solid var(--primary-color);
+      outline-offset: 2px;
+    }
+
+    /* Animation for theme toggle */
+    .theme-toggle.animate {
+      transform: rotate(180deg) scale(1.1);
+    }
+
+    /* Hero Section */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 0 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+      position: relative;
+      overflow: hidden;
+      text-align: center;
+    }
+
+    .hero-content {
+      flex: 1;
+      max-width: 800px;
+      margin-bottom: 3rem;
+    }
+
+    .hero-title {
+      font-family: "Bricolage Grotesque", sans-serif;
+      font-size: clamp(3rem, 8vw, 6rem);
+      font-weight: 700;
+      line-height: 1.1;
+      margin: 9rem 0 2rem 0;
+      overflow: hidden;
+    }
+
+    .hero-title .line {
+      display: block;
+      opacity: 0;
+      transform: translateY(100px);
+      animation: slideInUp 1s ease 0.5s forwards;
+    }
+
+    .hero-title .line:nth-child(2) {
+      animation-delay: 0.7s;
+      background: linear-gradient(
+        135deg,
+        var(--primary-color),
+        var(--secondary-color)
+      );
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-subtitle {
+      font-size: 1.25rem;
+      color: var(--text-secondary);
+      margin-bottom: 3rem;
+      opacity: 0;
+      animation: fadeInUp 1s ease 1s forwards;
+    }
+
+    .typewriter {
+      display: inline-block;
+      position: relative;
+    }
+
+    .typewriter-text {
+      display: inline;
+      background: linear-gradient(
+        135deg,
+        var(--primary-color),
+        var(--secondary-color)
+      );
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .typewriter::after {
+      content: "|";
+      position: absolute;
+      right: -5px;
+      animation: blink 0.7s infinite;
+    }
+
+    @keyframes blink {
+      0%,
+      100% {
+        opacity: 1;
+      }
+      50% {
+        opacity: 0;
+      }
+    }
+
+    .cta-buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .cta-button {
+      background: linear-gradient(
+        135deg,
+        var(--primary-color),
+        var(--secondary-color)
+      );
+      color: white;
+      border: none;
+      padding: 1rem 2rem;
+      border-radius: 50px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.3s ease;
+      opacity: 0;
+      animation: fadeInUp 1s ease 1.2s forwards;
+    }
+
+    .secondary-button {
+      background: transparent;
+      color: var(--text-primary);
+      border: 2px solid var(--primary-color);
+    }
+
+    .cta-button:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-heavy);
+    }
+
+    .button-ripple {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 0;
+      height: 0;
+      background: rgba(255, 255, 255, 0.3);
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      transition: all 0.6s ease;
+    }
+
+    .cta-button:active .button-ripple {
+      width: 300px;
+      height: 300px;
+    }
+
+    .hero-visual {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .floating-shapes {
+      position: relative;
+      width: 400px;
+      height: 400px;
+    }
+
+    .shape {
+      position: absolute;
+      border-radius: 50%;
+      opacity: 0.1;
+      animation: float 6s ease-in-out infinite;
+    }
+
+    .shape-1 {
+      width: 100px;
+      height: 100px;
+      background: var(--primary-color);
+      top: 20%;
+      left: 20%;
+      animation-delay: 0s;
+    }
+
+    .shape-2 {
+      width: 150px;
+      height: 150px;
+      background: var(--secondary-color);
+      top: 50%;
+      right: 20%;
+      animation-delay: 2s;
+    }
+
+    .shape-3 {
+      width: 80px;
+      height: 80px;
+      background: var(--accent-color);
+      bottom: 20%;
+      left: 40%;
+      animation-delay: 4s;
+    }
+
+    @keyframes slideInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes float {
+      0%,
+      100% {
+        transform: translateY(0px) rotate(0deg);
+      }
+      50% {
+        transform: translateY(-20px) rotate(180deg);
+      }
+    }
+
+    /* Stats Section */
+    .stats {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+      margin-top: 3rem;
+    }
+
+    .stat-item {
+      background: var(--bg-secondary);
+      padding: 1.5rem 2rem;
+      border-radius: 15px;
+      text-align: center;
+      min-width: 150px;
+      box-shadow: var(--shadow-light);
+      transition: transform 0.3s ease;
+    }
+
+    .stat-item:hover {
+      transform: translateY(-5px);
+    }
+
+    .stat-number {
+      font-family: "Bricolage Grotesque", sans-serif;
+      font-size: 2.5rem;
+      font-weight: 700;
+      background: linear-gradient(
+        135deg,
+        var(--primary-color),
+        var(--secondary-color)
+      );
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 0.5rem;
+    }
+
+    .stat-label {
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+    }
+
+    /* Section Styles */
+    section {
+      padding: 5rem 0;
+      position: relative;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    .section-title {
+      font-family: "Bricolage Grotesque", sans-serif;
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 600;
+      margin-bottom: 1rem;
+      opacity: 0;
+      transform: translateY(50px);
+      transition: all 0.8s ease;
+    }
+
+    .section-title.animate {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .section-subtitle {
+      font-size: 1.2rem;
+      color: var(--text-secondary);
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.8s ease 0.2s;
+    }
+
+    .section-subtitle.animate {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* About Section */
+    .about {
+      background: var(--bg-secondary);
+    }
+
+    .about-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .about-text p {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      margin-bottom: 2rem;
+      color: var(--text-secondary);
+    }
+
+    .skills {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .skill-item {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .skill-name {
+      font-w
+  <body>
+    <!-- Loading Screen -->
+    <div id="loading-screen">
+      <div class="loading-content">
+        <div class="loading-spinner"></div>
+        <h2>Welcome...</h2>
+        <div class="loading-bar">
+          <div class="loading-progress"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3D Flower Animation -->
+    <div id="flower-container">
+      <div class="flower" id="main-flower">
+        <div class="petal petal-1"></div>
+        <div class="petal petal-2"></div>
+        <div class="petal petal-3"></div>
+        <div class="petal petal-4"></div>
+        <div class="petal petal-5"></div>
+        <div class="center"></div>
+      </div>
+    </div>
+
+    <!-- Floating Particles (Surprise Feature) -->
+    <div id="particles-container"></div>
+
+    <!-- Navigation - Updated Structure -->
+    <nav class="navbar">
+      <div class="nav-container">
+        <a href="#" class="nav-logo">
+          <span>Dnyana</span>
+        </a>
+
+        <!-- Desktop Menu -->
+        <div class="nav-menu">
+          <a href="#home" class="nav-link">Home</a>
+          <a href="#about" class="nav-link">About</a>
+          <a href="#portfolio" class="nav-link">Work</a>
+          <a href="#eyes" class="nav-link">Eyes</a>
+          <a href="#contact" class="nav-link">Contact</a>
+          <button
+            id="theme-toggle"
+            class="theme-toggle"
+            aria-label="Change Theme"
+          >
+            <svg
+              class="theme-icon"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <circle cx="12" cy="12" r="5" class="sun-icon" />
+              <path
+                d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"
+                class="sun-rays"
+              />
+              <path
+                d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"
+                class="moon-icon"
+              />
+            </svg>
+          </button>
+        </div>
+
+        <!-- Mobile Hamburger -->
+        <div class="hamburger" id="hamburger">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </div>
+      </div>
+
+      <!-- Mobile Menu -->
+      <div class="mobile-menu" id="mobile-menu">
+        <a href="#home" class="mobile-nav-link">Home</a>
+        <a href="#about" class="mobile-nav-link">About</a>
+        <a href="#portfolio" class="mobile-nav-link">Work</a>
+        <a href="#contact" class="mobile-nav-link">Contact</a>
+        <button
+          id="theme-toggle-mobile"
+          class="theme-toggle mobile-theme-toggle"
+          aria-label="Change theme"
+        >
+          <svg
+            class="theme-icon"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <circle cx="12" cy="12" r="5" class="sun-icon" />
+            <path
+              d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"
+              class="sun-rays"
+            />
+            <path
+              d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"
+              class="moon-icon"
+            />
+          </svg>
+          <span>Change Theme</span>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+      <div class="hero-content">
+        <h1 class="hero-title">
+          <span class="line">Hi I'm</span>
+          <span class="line">Dnyaneshwari</span>
+        </h1>
+        <p class="hero-subtitle">
+          I'm a
+          <span class="typewriter"
+            ><span class="typewriter-text">UI/UX Designer</span></span
+          ><br />
+          crafting digital experiences with passion and precision
+        </p>
+
+        <div class="cta-buttons">
+          <button id="contact-btn" class="cta-button">
+            <span>Let's Connect</span>
+            <div class="button-ripple"></div>
+          </button>
+          <button id="portfolio-btn" class="cta-button secondary-button">
+            <span>View Work</span>
+            <div class="button-ripple"></div>
+          </button>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="floating-shapes">
+          <div class="shape shape-1"></div>
+          <div class="shape shape-2"></div>
+          <div class="shape shape-3"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">About Me</h2>
+          <p class="section-subtitle">
+            Passionate about creating meaningful digital experiences
+          </p>
+        </div>
+        <div class="about-content">
+          <div class="about-text">
+            <p>
+              I'm a creative designer passionate about crafting beautiful,
+              functional digital experiences. My work thrives at the
+              intersection of design and technology, blending aesthetics with
+              intuitive user interactions.
+            </p>
+            <p>
+              I specialize in creating intuitive user interfaces and engaging
+              user experiences that not only look great but also solve real
+              problems. My approach combines aesthetic sensibility with
+              technical expertise.
+            </p>
+            <div class="skills">
+              <div class="skill-item">
+                <span class="skill-name">UI/UX Design</span>
+                <div class="skill-bar">
+                  <div class="skill-progress" data-width="95%"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <span class="skill-name">Frontend Development</span>
+                <div class="skill-bar">
+                  <div class="skill-progress" data-width="88%"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <span class="skill-name">Brand Design</span>
+                <div class="skill-bar">
+                  <div class="skill-progress" data-width="92%"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <span class="skill-name">Motion Design</span>
+                <div class="skill-bar">
+                  <div class="skill-progress" data-width="85%"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <span class="skill-name">Illustration</span>
+                <div class="skill-bar">
+                  <div class="skill-progress" data-width="90%"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <span class="skill-name">Prototyping</span>
+                <div class="skill-bar">
+                  <div class="skill-progress" data-width="87%"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="stats">
+            <div class="stat-item">
+              <div class="stat-number">1+</div>
+              <div class="stat-label">Years Experience</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-number">3+</div>
+              <div class="stat-label">Projects Completed</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-number">0+</div>
+              <div class="stat-label">Happy Clients</div>
+            </div>
+          </div>
+          <div class="about-image">
+            <div class="image-placeholder">
+              <img src="./assets/img0.jpg" alt="Designer Portrait" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="portfolio">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Featured Work</h2>
+          <p class="section-subtitle">A selection of my recent projects</p>
+        </div>
+        <div class="portfolio-grid">
+          <div class="portfolio-item">
+            <div class="portfolio-image">
+              <img src="./assets/img1.jpg" alt="Project 1" />
+              <div class="portfolio-overlay">
+                <h3>E-commerce Platform</h3>
+                <p>Modern shopping experience</p>
+                <div class="portfolio-tags">
+                  <span>UI Design</span>
+                  <span>Frontend</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="portfolio-item">
+            <div class="portfolio-image">
+              <img src="./assets/img2.jpg" alt="Project 2" />
+              <div class="portfolio-overlay">
+                <h3>Mobile App Design</h3>
+                <p>Intuitive user interface</p>
+                <div class="portfolio-tags">
+                  <span>UX Research</span>
+                  <span>Prototyping</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="portfolio-item">
+            <div class="portfolio-image">
+              <img src="./assets/img3.jpg" alt="Project 3" />
+              <div class="portfolio-overlay">
+                <h3>Brand Identity</h3>
+                <p>Complete visual system</p>
+                <div class="portfolio-tags">
+                  <span>Logo Design</span>
+                  <span>Branding</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="portfolio-item">
+            <div class="portfolio-image">
+              <img src="./assets/img4.jpg" alt="Project 4" />
+              <div class="portfolio-overlay">
+                <h3>Dashboard Interface</h3>
+                <p>Data visualization</p>
+                <div class="portfolio-tags">
+                  <span>UI Design</span>
+                  <span>Data Viz</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Eyes Section -->
+    <section id="eyes" class="eyes-section">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Always Watching</h2>
+          <p class="section-subtitle">Move your cursor and see the magic</p>
+        </div>
+        <div class="eyes-container">
+          <div class="eye">
+            <div class="eyeball">
+              <div class="pupil"></div>
+            </div>
+          </div>
+          <div class="eye">
+            <div class="eyeball">
+              <div class="pupil"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Let’s Connect</h2>
+          <p class="section-subtitle">
+            Have a vision? I’m all ears. Let’s connect and create something
+            impactful!
+          </p>
+        </div>
+        <button
+          id="contact-section-btn"
+          class="cta-button"
+          style="margin: 0 auto; display: block"
+        >
+          <span>Contact Me</span>
+          <div class="button-ripple"></div>
+        </button>
+      </div>
+    </section>
+
+    <!-- Contact Popup -->
+    <div id="contact-popup" class="contact-popup">
+      <div class="popup-overlay"></div>
+      <div class="popup-content">
+        <button class="popup-close">&times;</button>
+        <h2>Let's Work Together</h2>
+        <form id="contact-form" class="contact-form">
+          <div class="form-group">
+            <input type="text" id="name" name="name" required />
+            <label for="name">Your Name</label>
+          </div>
+          <div class="form-group">
+            <input type="email" id="email" name="email" required />
+            <label for="email">Email Address</label>
+          </div>
+          <div class="form-group">
+            <input type="text" id="subject" name="subject" required />
+            <label for="subject">Subject</label>
+          </div>
+          <div class="form-group">
+            <textarea id="message" name="message" rows="5" required></textarea>
+            <label for="message">Your Message</label>
+          </div>
+          <button type="submit" class="submit-btn">
+            <span>Send Message</span>
+            <div class="button-ripple"></div>
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <!-- Updated Footer HTML -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-left">
+            <div class="footer-logo">
+              <span>Dnyana</span>
+            </div>
+          </div>
+
+          <div class="footer-right">
+            <div class="social-section">
+              <h3>Let's Connect</h3>
+              <div class="social-links">
+                <a
+                  href="https://www.linkedin.com/in/dnyaneshwari-avhad-73691932a?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+                  class="social-link"
+                  aria-label="LinkedIn"
+                >
+                  <div class="social-icon">
+                    <i class="fab fa-linkedin-in"></i>
+                  </div>
+                  <span>LinkedIn</span>
+                </a>
+                <a
+                  href="https://github.com/Dnyaneshwari-Avhad/Dnyaneshwari-Avhad"
+                  class="social-link"
+                  aria-label="GitHub"
+                >
+                  <div class="social-icon">
+                    <i class="fab fa-github"></i>
+                  </div>
+                  <span>GitHub</span>
+                </a>
+                <a href="#" class="social-link" aria-label="Twitter">
+                  <div class="social-icon">
+                    <i class="fab fa-twitter"></i>
+                  </div>
+                  <span>Twitter</span>
+                </a>
+                <a href="#" class="social-link" aria-label="Instagram">
+                  <div class="social-icon">
+                    <i class="fab fa-instagram"></i>
+                  </div>
+                  <span>Instagram</span>
+                </a>
+                <a
+                  href="mailto:dnyaneshwariavhad2006@gmail.com"
+                  class="social-link"
+                  aria-label="Email"
+                >
+                  <div class="social-icon">
+                    <i class="fas fa-envelope"></i>
+                  </div>
+                  <span>Email</span>
+                </a>
+              </div>
+            </div>
+            <div class="footer-text">
+              <p>&copy; 2025 All Rights Reserved</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Responsive Navbar with Theme Management
+      class ResponsiveNavbar {
+        constructor() {
+          this.navbar = document.querySelector(".navbar");
+          this.hamburger = document.getElementById("hamburger");
+          this.mobileMenu = document.getElementById("mobile-menu");
+          this.themeToggle = document.getElementById("theme-toggle");
+          this.themeToggleMobile = document.getElementById(
+            "theme-toggle-mobile"
+          );
+          this.mobileNavLinks = document.querySelectorAll(".mobile-nav-link");
+
+          // Theme management
+          this.currentTheme = localStorage.getItem("theme") || "light";
+
+          this.init();
+        }
+
+        init() {
+          this.setupTheme();
+          this.setupMobileMenu();
+          this.setupScrollEffect();
+          this.setupSmoothScrolling();
+          this.setupThemeToggle();
+        }
+
+        // Theme Management
+        setupTheme() {
+          document.documentElement.setAttribute(
+            "data-theme",
+            this.currentTheme
+          );
+          this.updateThemeIcons();
+        }
+
+        setupThemeToggle() {
+          if (this.themeToggle) {
+            this.themeToggle.addEventListener("click", () =>
+              this.toggleTheme()
+            );
+          }
+
+          if (this.themeToggleMobile) {
+            this.themeToggleMobile.addEventListener("click", () =>
+              this.toggleTheme()
+            );
+          }
+        }
+
+        toggleTheme() {
+          this.currentTheme = this.currentTheme === "light" ? "dark" : "light";
+          document.documentElement.setAttribute(
+            "data-theme",
+            this.currentTheme
+          );
+          localStorage.setItem("theme", this.currentTheme);
+          this.updateThemeIcons();
+
+          // Add animation effect
+          const buttons = [this.themeToggle, this.themeToggleMobile].filter(
+            Boolean
+          );
+          buttons.forEach((button) => {
+            button.classList.add("animate");
+            setTimeout(() => {
+              button.classList.remove("animate");
+            }, 300);
+          });
+        }
+
+        updateThemeIcons() {
+          const icons = document.querySelectorAll(".theme-icon");
+          icons.forEach((icon) => {
+            if (this.currentTheme === "dark") {
+              icon.classList.add("dark-mode");
+            } else {
+              icon.classList.remove("dark-mode");
+            }
+          });
+        }
+
+        // Mobile Menu Management
+        setupMobileMenu() {
+          if (this.hamburger) {
+            this.hamburger.addEventListener("click", () =>
+              this.toggleMobileMenu()
+            );
+          }
+
+          // Close mobile menu when clicking on nav links
+          this.mobileNavLinks.forEach((link) => {
+            link.addEventListener("click", () => this.closeMobileMenu());
+          });
+
+          // Close mobile menu when clicking outside
+          document.addEventListener("click", (e) => {
+            if (
+              !this.navbar.contains(e.target) &&
+              this.mobileMenu.classList.contains("active")
+            ) {
+              this.closeMobileMenu();
+            }
+          });
+
+          // Close mobile menu on window resize
+          window.addEventListener("resize", () => {
+            if (
+              window.innerWidth > 768 &&
+            
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    /* Loading Screen */
+    #loading-screen {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
       background: linear-gradient(
         135deg,
         var(--primary-color),
